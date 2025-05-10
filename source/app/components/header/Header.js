@@ -12,8 +12,8 @@ import { isEmptyObj } from '../../../helpers/General';
 import { renderImage } from '../../../helpers/renderImage';
 
 
-
 export const HeaderComponet = (props) => {
+  const { headerLabel } = props
   const navigation = useNavigation();
   const user = store.getState().UserReducer;
 
@@ -37,25 +37,24 @@ export const HeaderComponet = (props) => {
                 />
               </TouchableOpacity>
               : props && props.leftIcon === 'back' ?
-                <TouchableOpacity style={styles.drawerIcon} onPress={() => { props && props.onBack ? props.onBack() : navigation.goBack() }}>
+                <TouchableOpacity style={styles.backIcon} onPress={() => { props && props.onBack ? props.onBack() : navigation.goBack() }}>
                   <Icons
                     type={IconsType.antDesign}
                     name={IconsName.left}
                     color={colors.black}
-                    size={Dimension.large}
+                    size={Dimension.small}
                   />
                 </TouchableOpacity>
                 : null
           }
         </View>
         <View style={styles.centerPart}>
-          <View style={styles.viewImage}>
-            <Image
-              style={styles.image}
-              source={Images.logo}
-              resizeMode='contain'
-            />
-          </View>
+          {
+            props && props.center == 'headerlabel' ?
+              <Text style={styles.centertext}>{headerLabel}</Text>
+              :
+              null
+          }
         </View>
         <View style={styles.rightSideContainer}>
           {user && !isEmptyObj(user.user) ?

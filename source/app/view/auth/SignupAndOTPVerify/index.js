@@ -5,14 +5,14 @@ import { useIsFocused, useNavigation } from "@react-navigation/native"
 import { Toaster } from "../../../../helpers/toaster"
 // import ContentController from "../../../apis/controllers/content/contentController"
 import SignupScreen from "./Screen"
+import VerifyOtp from "../VerifyOtp"
 
 
-const Signup = (props) => {
+const SignupAndOTPVerify = (props) => {
 
     const defaultValues = {
         number: null,
     };
-
 
     const defaultErrors = {
         number: {
@@ -27,7 +27,7 @@ const Signup = (props) => {
     const [values, setValues] = useState(defaultValues);
     const [isError, setErrors] = useState(defaultErrors);
     const [loader, setLoader] = useState(false)
-    const [banner, setBanner] = useState({})
+    const [otpVerifyScreen, setOtpVerifyScreen] = useState(false)
 
 
     useEffect(() => {
@@ -59,36 +59,44 @@ const Signup = (props) => {
 
 
     const onSubmit = async () => {
-        let validation = new Validation(isError);
-        let isValid = validation.isFormValid(values);
-        if (isValid && !isValid.haveError) {
-            setLoader(true)
-            // let response = await AuthController.userSignUp(values)
-            // if (response && response.status) {
-            //     new Toaster().success(response.message);
-            //     setLoader(false),
-            //         props.navigation.navigate('login')
-            // }
-            // else {
-            //     setLoader(false)
-            // }
-        }
-        else {
-            setErrors({ ...isValid.errors })
-        }
-        setLoader(false)
+        setOtpVerifyScreen(true)
+        // let validation = new Validation(isError);
+        // let isValid = validation.isFormValid(values);
+        // if (isValid && !isValid.haveError) {
+        //     setLoader(true)
+        // let response = await AuthController.userSignUp(values)
+        // if (response && response.status) {
+        //     new Toaster().success(response.message);
+        //     setLoader(false),
+        //         props.navigation.navigate('login')
+        // }
+        // else {
+        //     setLoader(false)
+        // }
+        // }
+        // else {
+        //     setErrors({ ...isValid.errors })
+        // }
+        // setLoader(false)
     };
 
     return (
-        <SignupScreen
-            navigation={props.navigation}
-            values={values}
-            errors={isError}
-            handleChange={handleChange}
-            onSubmit={onSubmit}
-            loader={loader}
-        />
+        <>
+            {
+                otpVerifyScreen ?
+                    <VerifyOtp />
+                    :
+                    <SignupScreen
+                        navigation={props.navigation}
+                        values={values}
+                        errors={isError}
+                        handleChange={handleChange}
+                        onSubmit={onSubmit}
+                        loader={loader}
+                    />
+            }
+        </>
     )
 }
 
-export default Signup
+export default SignupAndOTPVerify

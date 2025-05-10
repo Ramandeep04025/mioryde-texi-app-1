@@ -5,6 +5,7 @@ import { Loader } from '../../../../helpers/loader';
 import { styles } from './style';
 import { dpHeight } from '../../../../assets/styles/Sizes';
 import { Button, Input } from '@rneui/themed';
+import PhoneInputField from '../../../components/PhoneInputField';
 
 
 const SignupScreen = (props) => {
@@ -12,7 +13,8 @@ const SignupScreen = (props) => {
         values,
         handleChange,
         loader,
-        isError
+        isError,
+        onSubmit
     } = props
 
     return (
@@ -28,23 +30,13 @@ const SignupScreen = (props) => {
                 >
                     <Text style={styles.text1}>Get Started</Text>
                     <View style={styles.bottomBody}>
-                        <Input
-                            placeholder="Phone number"
-                            rightIcon={true}
-                            keyboardType={'email-address'}
-                            autoCapitalize="none"
-                            value={values && values.email}
-                            handleChange={(e) => handleChange("email", e)}
-                            error={isError && isError.email && isError.email.message ? isError.email.message : null}
-                            rightIconColor={colors.darkGrey}
-                            IconRightSize={Dimension.large}
-                        />
+                        <PhoneInputField />
                     </View>
                 </ScrollView>
                 <View style={styles.bottomButton}>
                     <Button
                         title='Get OTP'
-                        onPress={() => handleLogin()}
+                        onPress={() => onSubmit()}
                     />
                     <View style={styles.bottomtextMain}>
                         <Text style={styles.bottomtext}>By continuing, you agree to our <Text style={styles.terms}>Terms of Service</Text> and <Text style={styles.terms}>Privacy Policy</Text>.</Text>

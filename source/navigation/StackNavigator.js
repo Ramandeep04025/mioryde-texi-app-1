@@ -3,6 +3,7 @@ import splash from "../app/view/auth/splash";
 import Intro from "../app/view/auth/intro";
 import login from "../app/view/auth/login";
 import MainLoginSignup from "../app/view/auth/MainLoginSignup";
+import ForgotPassword from "../app/view/auth/forgotPassword";
 const { createStackNavigator, TransitionPresets } = require("@react-navigation/stack");
 
 const Stack = createStackNavigator();
@@ -39,22 +40,14 @@ const StackScreens = () => (
         headerShown: false,
       }}
     />
-    {/* <Stack.Screen
-      name="ForgotVerifyOtp"
-      component={ForgotVerifyOtp}
-      options={{
-        headerMode: 'screen',
-        headerShown: false,
-      }}
-    /> */}
-    {/* <Stack.Screen
+    <Stack.Screen
       name="forgot_Password"
       component={ForgotPassword}
       options={{
         headerMode: 'screen',
         headerShown: false,
       }}
-    /> */}
+    />
     {/* <Stack.Screen
       name="reset_Password"
       component={ResetPassword}

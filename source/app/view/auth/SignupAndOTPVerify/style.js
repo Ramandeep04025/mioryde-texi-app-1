@@ -29,15 +29,15 @@ export const styles = StyleSheet.create({
         marginTop : dpHeight(-1.5)
     },
     bottomtextMain : {
-        marginTop : dpHeight(1.5)
+        marginTop : dpHeight(2.5)
     },
     bottomtext : {
-        fontSize: dpFont(14),
+        fontSize: dpFont(13),
         color: colors.black,
         fontFamily: Font.regular,
     },
     terms : {
-        fontSize: dpFont(14),
+        fontSize: dpFont(13),
         color: colors.primary,
         fontFamily: Font.regular,
     }
