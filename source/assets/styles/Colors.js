@@ -1,0 +1,15 @@
+export const colors = {
+    primary: '#FFC61C',
+    secondary: '#444655',
+    black: '#262C33',
+    darkGrey: '#606060',
+    transparent : "transparent",
+    background: '#F8F4F3',
+    white: '#FFFFFF',
+    blur: 'rgba(255, 255, 255, 0.34)',
+    grey: '#B2AEAE',
+    bordercolor: 'rgba(200, 9, 37, 0.36)',
+    transparentBack: 'rgba(52, 52, 52, 0.5)',
+    transparent: 'transparent',
+    placeholderColor: '#CDCACA',
+};
