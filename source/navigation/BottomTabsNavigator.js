@@ -1,4 +1,4 @@
-import Tabbar from "@mindinventory/react-native-tab-bar-interaction";
+// import Tabbar from "@mindinventory/react-native-tab-bar-interaction";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useDrawerProgress } from "@react-navigation/drawer";
 import React, { useState, useEffect } from 'react';

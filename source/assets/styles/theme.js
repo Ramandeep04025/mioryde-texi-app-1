@@ -59,7 +59,7 @@ export const Theme = createTheme({
             },
             buttonStyle: {
                 borderRadius: dpHeight(2.5),
-                paddingVertical: dpHeight(1.6),
+                height: dpHeight(7),
                 paddingHorizontal: dpWidth(5),
                 backgroundColor: colors.primary
             },

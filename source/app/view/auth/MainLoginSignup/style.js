@@ -43,11 +43,26 @@ const styles = StyleSheet.create({
         paddingVertical: dpWidth(2.5),
         paddingHorizontal: dpWidth(5),
         alignItems: 'center',
+        borderRadius: dpWidth(2)
+    },
+    LoginbuttonActive : {
+        backgroundColor: colors.transparent,
+        paddingVertical: dpWidth(2.5),
+        paddingHorizontal: dpWidth(5),
+        alignItems: 'center',
         borderBottomWidth: dpBorderWidth(1.5),
         borderBottomColor: colors.primary,
         borderRadius: dpWidth(2)
     },
     signUpbutton: {
+        marginLeft : dpWidth(20),
+        backgroundColor: colors.transparent,
+        paddingVertical: dpWidth(2.5),
+        paddingHorizontal: dpWidth(4),
+        alignItems: 'center',
+        borderRadius: dpWidth(2),
+    },
+    signUpbuttonActive : {
         marginLeft : dpWidth(20),
         backgroundColor: colors.transparent,
         paddingVertical: dpWidth(2.5),

@@ -12,8 +12,9 @@ import { isEmptyObj } from '../../../helpers/General';
 import { renderImage } from '../../../helpers/renderImage';
 
 
-
 export const HeaderComponet = (props) => {
+  const { headerLabel } = props;
+  console.log(headerLabel, "--------------------headerLabel")
   const navigation = useNavigation();
   const user = store.getState().UserReducer;
 
@@ -29,50 +30,52 @@ export const HeaderComponet = (props) => {
           {
             props && props.leftIcon === 'menu' ?
               <TouchableOpacity style={styles.drawerIcon} onPress={() => navigation.openDrawer()}>
-                <Icons
+                <View style={styles.barImg}>
+                  <Image
+                    style={styles.image}
+                    source={Images.bar}
+                    resizeMode='contain'
+                  />
+                </View>
+                {/* <Icons
                   type={IconsType.feather}
                   name={IconsName.menu}
                   color={colors.black}
                   size={Dimension.big}
-                />
+                /> */}
               </TouchableOpacity>
               : props && props.leftIcon === 'back' ?
-                <TouchableOpacity style={styles.drawerIcon} onPress={() => { props && props.onBack ? props.onBack() : navigation.goBack() }}>
+                <TouchableOpacity style={styles.backIcon} onPress={() => { props && props.onBack ? props.onBack() : navigation.goBack() }}>
                   <Icons
                     type={IconsType.antDesign}
                     name={IconsName.left}
                     color={colors.black}
-                    size={Dimension.large}
+                    size={Dimension.small}
                   />
                 </TouchableOpacity>
                 : null
           }
         </View>
         <View style={styles.centerPart}>
-          <View style={styles.viewImage}>
-            <Image
-              style={styles.image}
-              source={Images.logo}
-              resizeMode='contain'
-            />
-          </View>
+          {
+            props && props.center == 'headerlabel' ?
+              <Text style={styles.centertext}>{headerLabel}</Text>
+              :
+              null
+          }
         </View>
         <View style={styles.rightSideContainer}>
-          {user && !isEmptyObj(user.user) ?
-            <View style={styles.viewImageright2}>
-              <TouchableOpacity style={styles.viewImageright} onPress={() => {
-                user.user && user.user.role === 'dealer'
-                  ? navigation.navigate('dealer_profile') :
-                  navigation.navigate('seller_profile')
-              }}>
-                <Image
-                  style={styles.image}
-                  source={user && user.user && user.user.image ? renderImage(user.user.image) : Images.userImg}
-                  resizeMode='cover'
-                />
-              </TouchableOpacity>
-            </View>
-            : props.login ?
+          {/* {user && !isEmptyObj(user.user) ? */}
+          {props && props.rightImg ?
+            <TouchableOpacity style={styles.viewImageright}>
+              <Image
+                style={styles.image}
+                source={Images.profileImg}
+                resizeMode='cover'
+              />
+            </TouchableOpacity> :
+            null}
+          {/* : props.login ?
               <View style={styles.loginbtnMian}>
                 <View style={styles.loginbtnleft}>
                   <TouchableOpacity style={styles.loginbtn} onPress={() => navigation.navigate('login')}>
@@ -84,7 +87,7 @@ export const HeaderComponet = (props) => {
                     <Text style={styles.signbtntxt}>Sign up</Text>
                   </TouchableOpacity>
                 </View>
-              </View> : null}
+              </View> : null} */}
         </View>
       </View>
     </>

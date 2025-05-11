@@ -3,13 +3,18 @@ import splash from "../app/view/auth/splash";
 import Intro from "../app/view/auth/intro";
 import login from "../app/view/auth/login";
 import MainLoginSignup from "../app/view/auth/MainLoginSignup";
+import AppDrawer from "./DrawerNavigator";
+import EditProfile from "../app/view/editProfile";
+import ForgotPassword from "../app/view/auth/forgotPassword";
+import SignupScreen from "../app/view/auth/SignupAndOTPVerify/Screen";
 const { createStackNavigator, TransitionPresets } = require("@react-navigation/stack");
 
 const Stack = createStackNavigator();
 
 const StackScreens = () => (
   <Stack.Navigator
-    initialRouteName="splash"
+    initialRouteName="app-drawer"
+    // initialRouteName="home"
     screenOptions={{
       ...TransitionPresets.SlideFromRightIOS,
       presentation: Platform.OS === 'android' ? 'modal' : null,
@@ -39,6 +44,38 @@ const StackScreens = () => (
         headerShown: false,
       }}
     />
+    <Stack.Screen
+      name="app-drawer"
+      component={AppDrawer}
+      options={{
+        headerMode: 'screen',
+        headerShown: false,
+      }}
+    />
+    <Stack.Screen
+      name="signUp"
+      component={SignupScreen}
+      options={{
+        headerMode: 'screen',
+        headerShown: false,
+      }}
+    />
+    <Stack.Screen
+      name="edit-profile"
+      component={EditProfile}
+      options={{
+        headerMode: 'screen',
+        headerShown: false,
+      }}
+    />
+    {/* <Stack.Screen
+      name="home"
+      component={Home}
+      options={{
+        headerMode: 'screen',
+        headerShown: false,
+      }}
+    /> */}
     {/* <Stack.Screen
       name="ForgotVerifyOtp"
       component={ForgotVerifyOtp}
@@ -54,7 +91,7 @@ const StackScreens = () => (
         headerMode: 'screen',
         headerShown: false,
       }}
-    /> */}
+    />
     {/* <Stack.Screen
       name="reset_Password"
       component={ResetPassword}

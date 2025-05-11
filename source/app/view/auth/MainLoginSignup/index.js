@@ -6,10 +6,12 @@ import { Image } from "react-native";
 import { Images } from "../../../../assets/styles/Images";
 import { colors } from "../../../../assets/styles/Colors";
 import Login from "../login";
-import Signup from "../signup";
+import SignupAndOTPVerify from "../SignupAndOTPVerify"
+import { useState } from "react";
 
 
 const MainLoginSignup = () => {
+    const [activeScreen, setActiveScreen] = useState("login");
 
     return (
         <View style={styles.main}>
@@ -28,16 +30,22 @@ const MainLoginSignup = () => {
             </View>
             <View style={styles.view2}>
                 <View style={styles.absulateScreenlabel}>
-                    <TouchableOpacity style={styles.Loginbutton}>
+                    <TouchableOpacity onPress={() => setActiveScreen("login")} style={activeScreen === "login" ? styles.LoginbuttonActive : styles.Loginbutton}>
                         <Text style={styles.buttonText}>Login</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.signUpbutton}>
+                    <TouchableOpacity onPress={() => setActiveScreen("signup")} style={activeScreen === "signup" ? styles.signUpbuttonActive : styles.signUpbutton}>
                         <Text style={styles.buttonText}>Sign up</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.screenBody}>
-                   {/* <Login /> */}
-                   <Signup />
+                    {
+                        activeScreen === "login" ?
+                            <Login /> :
+                            activeScreen === "signup" ?
+                                <SignupAndOTPVerify />
+                                :
+                                null
+                    }
                 </View>
             </View>
         </View>

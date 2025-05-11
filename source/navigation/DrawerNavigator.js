@@ -1,40 +1,43 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { colors } from "../assets/styles/Colors";
 import { DrawerContent } from "./drawerContent";
-import BottomTabs from "./BottomTabsNavigator";
-import Dashboard from "../app/view/commanScreens/Dashboard";
-import { HeaderComponet } from "../app/components/header/Header";
-import SupportHelp from "../app/view/pages/supportHelp";
-import { Images } from "../assets/styles/Images";
-import HelpCenter from "../app/view/pages/helpCenter";
-import OpenTicket from "../app/view/pages/openTicket";
-import Faq from "../app/view/pages/faq's";
-import LeadsDetail from "../app/view/commanScreens/leads/leadsDetail";
-import LeadsListing from "../app/view/commanScreens/leads/leadsListing";
-import AllInvoices from "../app/view/commanScreens/billing/allIvoice";
-import BillingPage from "../app/view/commanScreens/billing/billingPage";
-import InvoiceDetail from "../app/view/commanScreens/billing/invoiceDetail";
-import VechicleListing from "../app/view/sellerScreens/myVehicles/myVehicleListing";
-import MyCarListing from "../app/view/dealerScreens/myCarListing";
-import PostCarSeller from "../app/view/sellerScreens/PostCarScreens";
-import CreditDetails from "../app/view/commanScreens/creditScreens/creditDetails";
-import PaymentDetails from "../app/view/commanScreens/creditScreens/paymentDetails";
-import UserListing from "../app/view/dealerScreens/userList";
-import PostCarDealer from "../app/view/dealerScreens/PostCarScreens";
-import SellerProfile from "../app/view/sellerScreens/profile";
-import DealerProfile from "../app/view/dealerScreens/profile";
-import SuccessFullScreen from "../app/view/commanScreens/successFullScreen";
-import ChangePassword from "../app/view/auth/changePassword";
-import PromotedHistory from "../app/view/commanScreens/promotedHistory";
-import AboutUs from "../app/view/pages/aboutUs";
-import PrivacyPolicy from "../app/view/pages/privacy";
-import Terms from "../app/view/pages/terms";
-import Contact from "../app/view/pages/contactUs/contact";
-import LeadsNotifications from './../app/view/commanScreens/leadsNotfications/index';
-import OpenTicketNotifications from './../app/view/commanScreens/OpenTicketsNotfications/index';
-import DealerMembership from "../app/view/dealerScreens/DealerMembership";
-import LeadsInformation from "../app/view/commanScreens/leads/leadsInformation";
-import PlandDetails from "../app/view/commanScreens/creditScreens/planDetail";
+// import BottomTabs from "./BottomTabsNavigator";
+// import Dashboard from "../app/view/commanScreens/Dashboard";
+// import { HeaderComponet } from "../app/components/header/Header";
+// import SupportHelp from "../app/view/pages/supportHelp";
+// import { Images } from "../assets/styles/Images";
+import Home from "../app/view/home";
+import EditProfile from "../app/view/editProfile";
+// import HelpCenter from "../app/view/pages/helpCenter";
+// import OpenTicket from "../app/view/pages/openTicket";
+// import Faq from "../app/view/pages/faq's";
+// import LeadsDetail from "../app/view/commanScreens/leads/leadsDetail";
+// import LeadsListing from "../app/view/commanScreens/leads/leadsListing";
+// import AllInvoices from "../app/view/commanScreens/billing/allIvoice";
+// import BillingPage from "../app/view/commanScreens/billing/billingPage";
+// import InvoiceDetail from "../app/view/commanScreens/billing/invoiceDetail";
+// import VechicleListing from "../app/view/sellerScreens/myVehicles/myVehicleListing";
+// import MyCarListing from "../app/view/dealerScreens/myCarListing";
+// import PostCarSeller from "../app/view/sellerScreens/PostCarScreens";
+// import CreditDetails from "../app/view/commanScreens/creditScreens/creditDetails";
+// import PaymentDetails from "../app/view/commanScreens/creditScreens/paymentDetails";
+// import UserListing from "../app/view/dealerScreens/userList";
+// import PostCarDealer from "../app/view/dealerScreens/PostCarScreens";
+// import SellerProfile from "../app/view/sellerScreens/profile";
+// import DealerProfile from "../app/view/dealerScreens/profile";
+// import SuccessFullScreen from "../app/view/commanScreens/successFullScreen";
+// import ChangePassword from "../app/view/auth/changePassword";
+// import PromotedHistory from "../app/view/commanScreens/promotedHistory";
+// import AboutUs from "../app/view/pages/aboutUs";
+// import PrivacyPolicy from "../app/view/pages/privacy";
+// import Terms from "../app/view/pages/terms";
+// import Contact from "../app/view/pages/contactUs/contact";
+// import LeadsNotifications from './../app/view/commanScreens/leadsNotfications/index';
+// import OpenTicketNotifications from './../app/view/commanScreens/OpenTicketsNotfications/index';
+// import DealerMembership from "../app/view/dealerScreens/DealerMembership";
+// import LeadsInformation from "../app/view/commanScreens/leads/leadsInformation";
+// import PlandDetails from "../app/view/commanScreens/creditScreens/planDetail";
+
 
 const Drawer = createDrawerNavigator();
 
@@ -44,12 +47,9 @@ const AppDrawer = () => {
 
   return (
     <Drawer.Navigator
-      initialRouteName="bottomTab"
+      initialRouteName="home"
       backBehavior="history"
       screenOptions={({ route, navigation }) => {
-        let index = navigation && navigation.getState ? navigation.getState().index : ''
-        let currentScreenName = navigation && navigation.getState ? navigation.getState().routeNames[index] : ''
-        activeScreen = currentScreenName ? currentScreenName : ''
         return {
           overlayColor: 'transparent',
           drawerType: 'slide',
@@ -67,35 +67,28 @@ const AppDrawer = () => {
           }
         }
       }}
-      drawerContent={(props) => <DrawerContent {...props} activeScreen={activeScreen} />}
+      drawerContent={(props) => <DrawerContent {...props} />}
     >
       <Drawer.Screen
-        name="bottomTab"
-        component={BottomTabs}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Drawer.Screen
-        name="dashboard"
-        component={Dashboard}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Drawer.Screen
-        name="change_password"
-        component={ChangePassword}
+        name="home"
+        component={Home}
         options={{
           headerShown: false
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
+          name="dashboard"
+          component={Dashboard}
+          options={{
+            headerShown: false,
+          }}
+        /> */}
+      {/* <Drawer.Screen
         name="promoted_History"
         component={PromotedHistory}
         options={{
           headerShown: false
-          
+
         }}
       />
       <Drawer.Screen
@@ -335,7 +328,7 @@ const AppDrawer = () => {
           ),
         }}
       />
-        <Drawer.Screen
+      <Drawer.Screen
         name="plan_details"
         component={PlandDetails}
         options={{
@@ -346,7 +339,7 @@ const AppDrawer = () => {
             />
           ),
         }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 };

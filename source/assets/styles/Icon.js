@@ -5,6 +5,7 @@ export const IconsName = {
   //-------------------------->antDesign
   close: 'close',
   checkcircle: 'checkcircle',
+  search1: 'search1',
   user: 'user',
   close: 'close',
   down: 'down',
@@ -29,8 +30,8 @@ export const IconsName = {
   left: 'left',
   right: 'right',
   infocirlceo: 'infocirlceo',
-  caretdown:'caretdown',
-  caretup:'caretup',
+  caretdown: 'caretdown',
+  caretup: 'caretup',
   warning: 'warning',
   //--------------------------->feather
   check2: 'check',
@@ -56,6 +57,7 @@ export const IconsName = {
   plus: 'plus',
   doubleRigth: 'chevrons-right',
   phone: 'phone',
+  edit2: 'edit-2',
   //--------------------------->Entypo
   check: 'check',
   chevronThinDown: 'chevron-thin-down',
@@ -70,6 +72,7 @@ export const IconsName = {
   link: 'link',
   attachment: 'attachment',
   chat: 'chat',
+  dotsHor: 'dots-three-horizontal',
   //---------------------------->ionIcon
   chevronDown: 'chevron-down',
   chevronUpSharp: 'chevron-up-sharp',
@@ -121,7 +124,7 @@ export const IconsName = {
   locationOutline: 'location',
   calendar: 'calendar',
   externalLink: 'external-link',
-  pencil:'pencil',
+  pencil: 'pencil',
   //--------------------------->materialCommunityIcons
   speed: 'speed',
   speedometerSlow: 'speedometer-slow',
@@ -143,7 +146,7 @@ export const IconsName = {
   lock: 'lock',
   //------------------------------>foundation
   dollarBill: 'dollar-bill',
-  burstSale:  'burst-sale',
+  burstSale: 'burst-sale',
 
   //-------------------------->fontisto
   email: 'email',
@@ -151,7 +154,7 @@ export const IconsName = {
   more: 'more-v-a',
   cal: 'cal',
   car: 'car',
-  
+
   //-------------------------->MaterialIcons
   privacyTip: 'privacy-tip'
 };
