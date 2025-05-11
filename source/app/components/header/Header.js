@@ -13,8 +13,7 @@ import { renderImage } from '../../../helpers/renderImage';
 
 
 export const HeaderComponet = (props) => {
-  const { headerLabel } = props;
-  console.log(headerLabel, "--------------------headerLabel")
+  const { headerLabel } = props
   const navigation = useNavigation();
   const user = store.getState().UserReducer;
 

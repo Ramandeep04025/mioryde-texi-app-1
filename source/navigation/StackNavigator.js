@@ -7,6 +7,7 @@ import AppDrawer from "./DrawerNavigator";
 import EditProfile from "../app/view/editProfile";
 import ForgotPassword from "../app/view/auth/forgotPassword";
 import SignupScreen from "../app/view/auth/SignupAndOTPVerify/Screen";
+import ForgotPassword from "../app/view/auth/forgotPassword";
 const { createStackNavigator, TransitionPresets } = require("@react-navigation/stack");
 
 const Stack = createStackNavigator();
